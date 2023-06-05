@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator zod {
+  provider = "zod-prisma"
+  output   = "./zod"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Author {
+  id        Int    @id @unique @default(autoincrement())
+  firstName String
+  lastName  String
+  Books     Book[]
+}
+
+model Book {
+  authorId      Int
+  title         String    @id
+  uploadedAt    DateTime  @default(now())
+  publishedDate DateTime
+  description   String    @db.VarChar(150)
+  subject       Subject   @default(GENERAL)
+  Author        Author    @relation(fields: [authorId], references: [id])
+  log           BookLog[]
+
+  @@unique([title, authorId])
+}
+
+model Person {
+  id        Int       @id @default(autoincrement())
+  firstName String
+  lastName  String
+  dob       DateTime  @map("date_of_birth") @db.Date
+  email     String    @unique
+  age       Int
+  updatedAt DateTime  @updatedAt
+  log       BookLog[]
+}
+
+model BookLog {
+  id           Int      @id @default(autoincrement()) @map("log_id")
+  title        String
+  productId    String
+  checkInTime  DateTime
+  checkOutTime DateTime @default(now())
+  personId     Int
+  person       Person   @relation(fields: [personId], references: [id])
+  book         Book     @relation(fields: [title], references: [title])
+
+  @@index([id, personId])
+  @@map("book_log")
+}
+
+enum Subject {
+  GENERAL
+  HORROR
+  MYSTERY
+  ROMANCE
+  EDUCATIONAL
+}
