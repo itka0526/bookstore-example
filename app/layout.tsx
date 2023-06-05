@@ -4,6 +4,7 @@ import Navbar from "./_components/navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import GoogleAnalytics from "./_components/analytics/Google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,17 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <Script strategy="lazyOnload" async src="https://www.googletagmanager.com/gtag/js?id=G-M83Y5QRWP9" />
-            <Script strategy="lazyOnload" id="google-analytics">
-                {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-
-                    gtag('config', 'G-M83Y5QRWP9');
-                `}
-            </Script>
-
+            <GoogleAnalytics GA_TRACKING_ID="G-M83Y5QRWP9" />
             <body className={inter.className}>
                 <main className={`relative flex min-h-screen flex-col p-24 max-md:p-12`} style={{ paddingTop: `calc(${navHeight} + 1rem)` }}>
                     <Navbar />
