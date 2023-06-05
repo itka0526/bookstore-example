@@ -1,6 +1,7 @@
 import { BookModel } from "@/prisma/zod";
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import { handleUpload } from "../actions";
+import { SubmitButton } from "../_components/form/Submit";
 
 export default async function Upload() {
     return (
@@ -32,7 +33,6 @@ const InputField = ({ id, name, label, ...props }: InputFieldProps) => {
 };
 
 type SelectFieldProps = { name: string; id: string; label: string };
-
 const SelectField = ({ id, name, label }: SelectFieldProps) => {
     return (
         <div className="my-2 grid w-full grid-cols-2 max-md:grid-cols-1">
@@ -47,11 +47,3 @@ const SelectField = ({ id, name, label }: SelectFieldProps) => {
         </div>
     );
 };
-
-const SubmitButton = () => (
-    <div className="w-full flex justify-center items-center">
-        <button type="submit" className="my-2 text-lg">
-            Upload
-        </button>
-    </div>
-);
