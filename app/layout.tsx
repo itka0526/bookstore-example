@@ -19,15 +19,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             <Script strategy="lazyOnload" id="google-analytics">
                 {`
-                    <!-- Google tag (gtag.js) -->
-                    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GTX46KRWR"></script>
-                    <script>
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'G-7GTX46KRWR');
-                    </script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-7GTX46KRWR', {
+                        page_path: window.location.pathname,
+                    });
                     `}
             </Script>
 
