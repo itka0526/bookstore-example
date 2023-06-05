@@ -15,14 +15,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-7GTX46KRWR`} />
+            <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-M83Y5QRWP9`} />
 
             <Script strategy="lazyOnload" id="google-analytics">
                 {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
-                    gtag('config', 'G-7GTX46KRWR', {
+                    gtag('config', 'G-M83Y5QRWP9', {
                         page_path: window.location.pathname,
                     });
                     `}
