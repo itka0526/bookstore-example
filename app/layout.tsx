@@ -3,7 +3,6 @@ import { navHeight } from "./_components/globalCSS";
 import Navbar from "./_components/navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import GoogleAnalytics from "./_components/analytics/Google";
 
 const inter = Inter({ subsets: ["latin"] });
