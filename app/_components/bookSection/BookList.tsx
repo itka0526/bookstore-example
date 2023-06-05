@@ -42,7 +42,7 @@ export type BookProps = Pick<Book, "subject" | "title"> & { Author: Pick<Author,
 function BookPreview({ subject, title, Author: { firstName, lastName }, toggleMode }: BookProps & { toggleMode: ToggleModes }) {
     return (
         <div
-            className={`gap-2 p-4 grow-0 shrink-0 border border-400  ${
+            className={`gap-2 p-4 grow-0 shrink-0 border border-slate-100  ${
                 toggleMode === "list" ? "basis-full my-1 grid grid-cols-[4rem,1fr]" : "flex basis-1/3 flex-col aspect-[7/8] justify-between"
             }`}
         >

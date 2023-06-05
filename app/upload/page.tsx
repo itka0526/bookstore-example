@@ -5,19 +5,21 @@ import { SubmitButton } from "../_components/form/Submit";
 
 export default async function Upload() {
     return (
-        <form className="h-full w-full " action={handleUpload}>
-            <InputField id="author-input" name="Author" label="Author" pattern="^[A-Z][a-zA-Z]* [A-Z][a-zA-Z]*$" placeholder="Steve Klabnik" />
-            <InputField id="title-input" name="title" label="Title" placeholder="The Rust Programming Language" />
-            <InputField id="publishedDate-input" name="publishedDate" label="Published Date" type="date" />
-            <InputField
-                id="description-input"
-                name="description"
-                label="Description"
-                placeholder="This version of the text assumes you’re using Rust 1.67.1 (released 2023-02-09) or later. See the “Installation” section of Chapter 1 to install or update Rust."
-            />
-            <SelectField id="subject-input" name="subject" label="Genre" />
-            <SubmitButton />
-        </form>
+        <div className="flex self-center w-full ">
+            <form className="h-full w-full " action={handleUpload}>
+                <InputField id="author-input" name="Author" label="Author" pattern="^[A-Z][a-zA-Z]* [A-Z][a-zA-Z]*$" placeholder="Steve Klabnik" />
+                <InputField id="title-input" name="title" label="Title" placeholder="The Rust Programming Language" />
+                <InputField id="publishedDate-input" name="publishedDate" label="Published Date" type="date" />
+                <InputField
+                    id="description-input"
+                    name="description"
+                    label="Description"
+                    placeholder="This version of the text assumes you’re using Rust 1.67.1 (released 2023-02-09) or later. See the “Installation” section of Chapter 1 to install or update Rust."
+                />
+                <SelectField id="subject-input" name="subject" label="Genre" />
+                <SubmitButton />
+            </form>
+        </div>
     );
 }
 

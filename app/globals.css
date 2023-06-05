@@ -7,7 +7,6 @@
 
     --left-side-panel-width: 25%;
     --scrollable-side-panel-width: 75%;
-    --side-panel-toggle-space: 3rem;
 }
 
 * {
@@ -31,8 +30,6 @@
 
 .side-panel-toggle {
     display: block;
-    width: calc(var(--side-panel-toggle-space) - 1rem);
-    height: 2rem;
 }
 
 .main-layout-container {
